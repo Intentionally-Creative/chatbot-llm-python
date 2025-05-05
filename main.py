@@ -18,6 +18,10 @@ class ChatRequest(BaseModel):
     model: str = "gpt-4.0"
     messages: List[Message]
 
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
 @app.post("/chat")
 async def chat_endpoint(chat_request: ChatRequest):
     try:
