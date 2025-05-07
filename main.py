@@ -18,6 +18,10 @@ class ChatRequest(BaseModel):
     model: str = "gpt-4.0"
     messages: List[Message]
 
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
 @app.post("/chat")
 async def chat_endpoint(chat_request: ChatRequest):
     try:
@@ -54,6 +58,7 @@ You are optimized to be used in digital interfaces like chat assistants, support
 
         reply = response.choices[0].message.content
         return {"reply": reply}
+
 
     except Exception as e:
         print("LLM error:", e)
