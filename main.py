@@ -51,6 +51,7 @@ Please follow these guidelines in your responses:
         reply = response.choices[0].message.content
         return {"reply": reply}
 
+
     except Exception as e:
         print("LLM error:", e)
         return {"reply": None, "error": str(e)}
